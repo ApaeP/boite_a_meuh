@@ -1,2 +1,10 @@
 <h1>Boxes#new</h1>
 <p>Find me in app/views/boxes/new.html.erb</p>
+
+<%= simple_form_for @box do |f| %>
+  <%= f.input :name, label: false, placeholder: 'Nom' %>
+  <%= f.input :size, prompt: 'Choisir la taille', collection: Box::SIZES, label: false %>
+  <%= f.association :style, prompt: 'Choisir le style', :label_method => lambda { |style| "#{style.on_verra}" }, label: false %>
+  <%= f.association :sound, prompt: 'Choisir le son', :label_method => lambda { |sound| "#{sound.animal}" }, label: false %>
+  <%= f.submit "Créer la boîte à meuh" %>
+<% end %>

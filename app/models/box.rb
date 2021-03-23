@@ -1,8 +1,5 @@
 class Box < ApplicationRecord
-  validates :size, presence: true
-  belongs_to :sound
-  belongs_to :style
-  enum size: [
+  SIZES = [
     :extra_tiny,
     :tiny,
     :extra_small,
@@ -16,5 +13,9 @@ class Box < ApplicationRecord
     :monumental,
     :extra_monumental
   ]
+  validates :size, :name, presence: true
+  belongs_to :sound
+  belongs_to :style
+  enum size: SIZES
 end
 

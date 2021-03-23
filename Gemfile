@@ -56,4 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # BOITEAMEUH GEMS
-gem 'devise'
+gem 'devise' # ------------------------------------------------------------------------------------- Authentication
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master' # -------------- Faking stuff for seeds
+gem 'tty-progressbar' # ---------------------------------------------------------------------------- Progress bar display for seeds and stuff
+

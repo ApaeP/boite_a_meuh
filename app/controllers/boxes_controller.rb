@@ -38,7 +38,7 @@ class BoxesController < ApplicationController
     if @box.destroy
       redirect_to boxes_path
     else
-      flash.alert = "Your box has not been destroy. Please try again."
+      flash.alert = "Your box has not been destroy! Please try again."
     end
   end
 

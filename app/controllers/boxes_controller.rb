@@ -1,10 +1,11 @@
 class BoxesController < ApplicationController
+  before_action :set_box, only: [:show, :edit, :update, :destroy]
+
   def index
-    @box = Box.all
+    @boxes = Box.all.order(created_at: 'DESC')
   end
 
   def show
-    @box = Box.find(params[:id])
   end
 
   def new
@@ -21,11 +22,9 @@ class BoxesController < ApplicationController
   end
 
   def edit
-    @box = Box.find(params[:id])
   end
 
   def update
-    @box = Box.find(params[:id])
     if @box.update(box_params)
       redirect_to box_path(@box)
     else
@@ -34,17 +33,20 @@ class BoxesController < ApplicationController
   end
 
   def destroy
-    @box = Box.find(params:id])
     if @box.destroy
       redirect_to boxes_path
     else
-      flash.alert = "Your box has not been destroy! Please try again."
+      flash.alert = "Your box has not been destroyed! Please try again."
     end
   end
 
-    private
+  private
+
+  def set_box
+    @box = Box.find(params[:id])
+  end
 
   def box_params
-    params.require(:box).permit(:name, :sound, :style)
+    params.require(:box).permit(:name, :size, :sound_id, :style_id)
   end
 end

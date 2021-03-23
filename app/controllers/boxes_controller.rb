@@ -26,14 +26,20 @@ class BoxesController < ApplicationController
 
   def update
     @box = Box.find(params[:id])
-    @box.update(box_params)
-    redirect_to boxes_path
+    if @box.update(box_params)
+      redirect_to box_path(@box)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @box = Box.find(params[:id])
-    @box.destroy
-    redirect_to boxes_path
+    @box = Box.find(params:id])
+    if @box.destroy
+      redirect_to boxes_path
+    else
+      flash.alert = "Your box has not been destroy. Please try again."
+    end
   end
 
     private

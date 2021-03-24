@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'sounds/new'
-  get 'sounds/edit'
-  get 'sounds/index'
-  devise_for :users
-  resources :boxes
   root to: 'pages#home'
+  devise_for :users
+  resources :sounds, only: [:new, :create, :edit, :update, :destroy, :index]
+  resources :boxes
 end

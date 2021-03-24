@@ -63,3 +63,5 @@ gem 'tty-progressbar' # --------------------------------------------------------
 gem 'bootstrap', '~> 4.0'
 gem 'simple_form' # -------------------------------------------------------------------------------- Simple form
 gem "cloudinary"
+gem 'active_storage_validations'
+

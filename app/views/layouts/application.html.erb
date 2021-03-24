@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Boite à Meuh</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -8,23 +9,23 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+
     <div class="temp-navbar">
       <%= link_to "Accueil", root_path %>
       <%= link_to "Index des boites à meuh", boxes_path %>
       <%= link_to "Créer une boîte à meuh", new_box_path %>
+      <%= link_to "Index des sons", sounds_path %>
+      <%= link_to "Créer un Son, moo!", new_sound_path %>
     </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
 
-  <style>
-    .temp-navbar {
-      display: flex;
-      justify-content: space-around;
-    }
-  </style>
+    <%= yield %>
+
+  </body>
 </html>

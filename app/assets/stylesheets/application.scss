@@ -2,3 +2,14 @@
 
 @import "config/index";
 @import "components/index";
+
+
+// Temporary styles for testing
+.temp-navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sound-bars {
+  display: none;
+}

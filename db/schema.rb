@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_03_24_145229) do
   end
 
   create_table "sounds", force: :cascade do |t|
-    t.string "animal"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

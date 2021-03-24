@@ -4,7 +4,7 @@
 <ol>
   <% @boxes.each do |box| %>
     <li>
-      <p><strong><%= box.name %></strong> | (<em><%= box.size %></em>) || <%= link_to "Edit dat shiet", edit_box_path(box) %> || <%= link_to "Delete dat shiet", box_path(box), method: :delete %> | style: <%= box.style.on_verra %> | sound: <%= box.sound.animal %></p>
+      <p><strong><%= box.name %></strong> | (<em><%= box.size %></em>) || <%= link_to "Edit dat shiet", edit_box_path(box) %> || <%= link_to "Delete dat shiet", box_path(box), method: :delete %> | style: <%= box.style.on_verra %> | sound: <%= box.sound.name %> <%= render 'sounds/play_button', sound: box.sound %></p>
     </li>
     <hr>
   <% end %>

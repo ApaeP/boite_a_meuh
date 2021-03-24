@@ -13,4 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+
+// graphical variables
+@import "config/colors";
+@import "config/fonts";
+
+
+ // external libraries
 @import "bootstrap";

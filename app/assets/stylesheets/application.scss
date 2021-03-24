@@ -1,4 +1,10 @@
+// external libraries
 @import "bootstrap";
 
+// graphical variables
+@import "config/colors";
+@import "config/fonts";
 @import "config/index";
+
+// internal style
 @import "components/index";

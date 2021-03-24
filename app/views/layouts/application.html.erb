@@ -13,14 +13,7 @@
   </head>
 
   <body>
-
-    <div class="temp-navbar">
-      <%= link_to "Accueil", root_path %>
-      <%= link_to "Index des boites à meuh", boxes_path %>
-      <%= link_to "Créer une boîte à meuh", new_box_path %>
-      <%= link_to "Index des sons", sounds_path %>
-      <%= link_to "Créer un Son, moo!", new_sound_path %>
-    </div>
+    <% render 'shared/navbar' %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

@@ -1,0 +1,12 @@
+<h1>Sounds#index</h1>
+<p>Find me in app/views/sounds/index.html.erb</p>
+
+<ul>
+  <% @sounds.each do |sound| %>
+    <li>
+      <%= sound.name %>
+      <%= render 'play_button', sound: sound %> | <%= link_to "Edit", edit_sound_path(sound) %> | <%= link_to "Delete", sound_path(sound), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+

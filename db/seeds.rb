@@ -1,7 +1,7 @@
 beginning_time = Time.now
 # Trollons un peu
-system 'osascript -e "set Volume 8"'
-system 'say -v Daniel "Welcome to turbo seeds! Moooo, Bèèh, Woof, Meow!"'
+# system 'osascript -e "set Volume 8"'
+# system 'say -v Daniel "Welcome to turbo seeds! Moooo, Bèèh, Woof, Meow!"'
 # Trollons un peu
 
 # Faker::Config.locale = 'fr'
@@ -26,20 +26,23 @@ puts "====================================="
 # end
 
 # (with_pictures == "y") ? (puts "Building seeds with pictures.") : (puts "Building seeds without pictures.")
+animals = %w(cat cow cow2 goat pig)
 
 puts "\n How many styles do you want to build?"
 print " > "
 style_count = STDIN.gets.chomp.to_i
 
-puts "\n How many sounds do you want to build?"
-print " > "
-sounds_count = STDIN.gets.chomp.to_i
+# puts "\n How many sounds do you want to build?"
+# print " > "
+# sounds_count = STDIN.gets.chomp.to_i
+sounds_count = animals.count
 
 puts "\n How many boxes do you want to build?"
 print " > "
 boxes_count = STDIN.gets.chomp.to_i
 
 
+total_objects_to_create = style_count + sounds_count + boxes_count
 total_objects_to_create = style_count + sounds_count + boxes_count
 # ============================== PARAMETRAGE END ==============================
 
@@ -51,9 +54,8 @@ total_objects_to_create = style_count + sounds_count + boxes_count
     puts "You seem to be in production, are you sure you want to continue? This will erase the DataBase entirely"
     print "Yes (y) or No (n) > "
     erase_prod = STDIN.gets.chomp
-    system 'rails db:drop db:create db:migrate' unless erase_prod == 'n'
-    raise "You can't seed if you don't drop DataBase" if erase_prod == 'y'
-  else
+    # system 'rails db:drop db:create db:migrate' unless erase_prod == 'n'
+    raise "You can't seed if you don't drop DataBase" if erase_prod == 'n'
     puts "\n Cleaning DB"
     AgencyWorkerAssociation.destroy_all
     Incident.destroy_all
@@ -68,7 +70,7 @@ puts " DB cleaned \n \n "
 
 # Trollons un peu
 puts File.read('app/assets/images/Troll.txt')
-system 'osascript -e "set Volume 8"'
+# system 'osascript -e "set Volume 8"'
 system 'afplay app/assets/images/moo_sound.mp3'
 # Trollons un peu
 # ============================== DATABASE CLEANING END ==============================
@@ -82,10 +84,8 @@ puts "Test account built"
 # ============================== CREATING STYLES ==============================
 puts "\n Building #{style_count.to_s} styles"
   styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: style_count)
-  i = 1
   style_count.times do
     Style.create!(on_verra: Faker::Creature::Animal.name)
-    i += 1
     styles_progress_bar.advance(1)
   end
 puts " Styles built"
@@ -93,28 +93,27 @@ puts " Styles built"
 
 # ============================== CREATING SOUNDS ==============================
 puts "\n Building #{sounds_count.to_s} sounds"
-  styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: sounds_count)
-  i = 1
-  sounds_count.times do
-    Sound.create!(animal: Faker::Creature::Animal.name)
-    i += 1
-    styles_progress_bar.advance(1)
+  sounds_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: sounds_count)
+  animals.each do |animal|
+    sound = Sound.new(name: animal)
+    sound.sound_file.attach(io: File.open(File.join(Rails.root,"app/assets/images/sound-#{animal}.mp3")), filename: "sound-#{animal}")
+    sound.save!
+    sounds_progress_bar.advance(1)
   end
 puts " Sounds built"
 # ============================== CREATING SOUNDS END ==============================
 
 # ============================== CREATING BOXES ==============================
 puts "\n Building #{boxes_count.to_s} boxes"
-  styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: boxes_count)
-  i = 1
+  boxes_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: boxes_count)
   boxes_count.times do
     Box.create!(
       name: Faker::Food.dish,
-      size: [:extra_tiny, :tiny, :extra_small, :small, :extra_medium, :medium, :large, :extra_large, :huge, :extra_huge, :monumental, :extra_monumental].sample,
+      size: Box::SIZES.sample,
+      # size: [:extra_tiny, :tiny, :extra_small, :small, :extra_medium, :medium, :large, :extra_large, :huge, :extra_huge, :monumental, :extra_monumental].sample,
       style: Style.order("RANDOM()").first,
       sound: Sound.order("RANDOM()").first)
-    i += 1
-    styles_progress_bar.advance(1)
+    boxes_progress_bar.advance(1)
   end
 puts " Boxes built"
 # ============================== CREATING BOXES END ==============================

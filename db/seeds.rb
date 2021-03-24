@@ -57,13 +57,9 @@ total_objects_to_create = style_count + sounds_count + boxes_count
     # system 'rails db:drop db:create db:migrate' unless erase_prod == 'n'
     raise "You can't seed if you don't drop DataBase" if erase_prod == 'n'
     puts "\n Cleaning DB"
-    AgencyWorkerAssociation.destroy_all
-    Incident.destroy_all
-    Worker.destroy_all
-    Tenant.destroy_all
-    Property.destroy_all
-    Owner.destroy_all
-    Agency.destroy_all
+    Box.destroy_all
+    Sound.destroy_all
+    Style.destroy_all
     User.destroy_all
   end
 puts " DB cleaned \n \n "

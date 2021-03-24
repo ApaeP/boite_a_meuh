@@ -60,3 +60,4 @@ gem 'devise' # -----------------------------------------------------------------
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master' # -------------- Faking stuff for seeds
 gem 'tty-progressbar' # ---------------------------------------------------------------------------- Progress bar display for seeds and stuff
 gem 'bootstrap', '~> 4.0'
+gem 'simple_form' # -------------------------------------------------------------------------------- Simple form

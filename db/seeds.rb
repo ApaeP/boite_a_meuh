@@ -108,7 +108,11 @@ puts "\n Building #{boxes_count.to_s} boxes"
   styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: boxes_count)
   i = 1
   boxes_count.times do
-    Box.create!(size: [:extra_tiny, :tiny, :extra_small, :small, :extra_medium, :medium, :large, :extra_large, :huge, :extra_huge, :monumental, :extra_monumental].sample, style: Style.order("RANDOM()").first, sound: Sound.order("RANDOM()").first)
+    Box.create!(
+      name: Faker::Food.dish,
+      size: [:extra_tiny, :tiny, :extra_small, :small, :extra_medium, :medium, :large, :extra_large, :huge, :extra_huge, :monumental, :extra_monumental].sample,
+      style: Style.order("RANDOM()").first,
+      sound: Sound.order("RANDOM()").first)
     i += 1
     styles_progress_bar.advance(1)
   end

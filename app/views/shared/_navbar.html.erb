@@ -4,4 +4,17 @@
   <%= link_to "Créer une boîte à meuh", new_box_path %>
   <%= link_to "Index des sons", sounds_path %>
   <%= link_to "Créer un Son, moo!", new_sound_path %>
+  <!-- Theme switch -->
+  <div class="theme-items">
+    <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
+    <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
+      <% if cookies[:theme] == "dark" %>
+        <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
+      <% else %>
+        <input id="theme-toggle" type="checkbox" class="toggle-theme">
+      <% end %>
+    <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
+  </div>
+  <!-- Theme switch end -->
 </div>
+

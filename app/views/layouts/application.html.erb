@@ -12,7 +12,7 @@
 
   </head>
 
-  <body>
+  <body class="<%= cookies[:theme] || 'light' %> <%= "sass-theme-#{(cookies[:theme] || 'light')}" %>">
     <%= render 'shared/navbar' %>
 
     <p class="notice"><%= notice %></p>

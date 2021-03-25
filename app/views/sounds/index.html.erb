@@ -2,10 +2,10 @@
 <p>Find me in app/views/sounds/index.html.erb</p>
 
 <ul>
-  <% @sounds.each do |sound| %>
+  <% @sounds.each_with_index do |sound, i| %>
     <li>
       <%= sound.name %>
-      <%= render 'play_button', sound: sound %> | <%= link_to "Edit", edit_sound_path(sound) %> | <%= link_to "Delete", sound_path(sound), method: :delete %>
+      <%= render 'play_button', sound: sound, id: i %> | <%= link_to "Edit", edit_sound_path(sound) %> | <%= link_to "Delete", sound_path(sound), method: :delete %>
     </li>
   <% end %>
 </ul>

@@ -1,4 +1,3 @@
-
 const stopAndResetSound = (player) => {
   player.pause(); // Pause the player
   player.currentTime = 0; // Reset the player

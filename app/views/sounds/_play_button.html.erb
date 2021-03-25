@@ -1,5 +1,5 @@
 <% if sound.sound_file.attached? %>
-  <button class="play-btns btn btn-primary" id="play-<%= sound.id %>" data-id="<%= sound.id %>">Play</button>
+  <button class="play-btns btn btn-primary" id="play-<%= id %>" data-id="<%= id %>">Play</button>
 
     <!-- SOUND TAG -->
     <%=
@@ -10,9 +10,9 @@
       poster: false,
       disablePictureInPicture: true,
       playsinline: true,
-      id: "sound-#{sound.id}",
+      id: "sound-#{id}",
       class: "sound-bars",
-      'data-id': sound.id
+      'data-id': id
     %>
     <!-- SOUND TAG -->
 

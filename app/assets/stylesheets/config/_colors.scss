@@ -1,4 +1,46 @@
-$moobox-color: #F0AE2E;
-$dark-raisin: #221D23;
-$light-gray: #F7F7F7;
-$moo-green: #65A477;
+$themes: (
+  light: (
+    logo: url(image-path('logo_moobox_light.svg')),
+    moobox: #F0AE2E,
+    moobox-hover: #E59E10,
+    raisin: #221D23,
+    raisin-hover: #0B090B,
+    grass: #65A477,
+    grass-hover: #5B9A6D,
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3),
+    background-color-main: hsla(0, 0%, 100%, 1),
+    background-color-elements: hsla(0, 0%, 98%, 1),
+    background-color-elements-hover: hsla(0, 0%, 89%, 1),
+  ),
+  dark: (
+    logo: url(image-path('logo_moobox_dark.svg')),
+    moobox: #F0AE2E,
+    moobox-hover: #E59E10,
+    raisin: #9A849A,
+    raisin-hover: #917891,
+    grass: #65A477,
+    grass-hover: #5B9A6D,
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3),
+    background-color-main: hsla(0, 0%, 15%, 1),
+    background-color-elements: hsla(0, 0%, 12%, 1),
+    background-color-elements-hover: hsla(0, 0%, 22%, 1),
+  ),
+);
+
+$theme-map: null;
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .sass-theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

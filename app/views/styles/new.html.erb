@@ -1,0 +1,9 @@
+<h1>Styles#new</h1>
+<p>Find me in app/views/styles/new.html.erb</p>
+
+
+<%= simple_form_for @style do |f| -%>
+  <%= f.input :name, label: false, placeholder: "Name" %>
+  <%= f.input :pattern, as: :file %>
+  <%= f.submit "Submit new style" %>
+<% end -%>

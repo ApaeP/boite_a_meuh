@@ -1,0 +1,11 @@
+<h1>Styles#index</h1>
+<p>Find me in app/views/styles/index.html.erb</p>
+
+<ul>
+  <% @styles.each_with_index do |style, i| %>
+    <li>
+      <%= style.name %> | <%= link_to "Edit style", edit_style_path(style) %> | <%= link_to "Delete style", style_path(style), method: :delete %>
+      <%= cl_image_tag style.pattern.key, height: '170px', width: '300px', alt: "alttext" %>
+    </li>
+  <% end %>
+</ul>

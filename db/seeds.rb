@@ -81,7 +81,7 @@ puts "Test account built"
 puts "\n Building #{style_count.to_s} styles"
   styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: style_count)
   style_count.times do
-    Style.create!(on_verra: Faker::Creature::Animal.name)
+    Style.create!(name: Faker::Creature::Animal.name)
     styles_progress_bar.advance(1)
   end
 puts " Styles built"

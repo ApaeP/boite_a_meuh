@@ -4,7 +4,7 @@
 <%= simple_form_for @box do |f| %>
   <%= f.input :name, label: false, placeholder: 'Name' %>
   <%= f.input :size, prompt: 'Size', collection: Box::SIZES, label: false %>
-  <%= f.association :style, prompt: 'Style', :label_method => lambda { |style| "#{style.on_verra}" }, label: false %>
+  <%= f.association :style, prompt: 'Style', :label_method => lambda { |style| "#{style.name}" }, label: false %>
   <%= f.association :sound, prompt: 'Sound', :label_method => lambda { |sound| "#{sound.name}" }, label: false %>
   <%= f.submit "Create Moobox! (moo)" %>
 <% end %>

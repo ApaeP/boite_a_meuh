@@ -1,28 +1,29 @@
 $themes: (
   light: (
-
-    moobox: #F0AE2E;
-    moobox-hover: #BF840D;
-    raisin: #221D23;
-    raisin-hover #0B090B;
-    grass: #65A477;
-    grass-hover: #447451;
+    logo: url(image-path('logo_moobox_light.svg')),
+    moobox: #F0AE2E,
+    moobox-hover: #E59E10,
+    raisin: #221D23,
+    raisin-hover: #0B090B,
+    grass: #65A477,
+    grass-hover: #5B9A6D,
     box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3),
+    background-color-main: hsla(0, 0%, 100%, 1),
+    background-color-elements: hsla(0, 0%, 98%, 1),
+    background-color-elements-hover: hsla(0, 0%, 89%, 1),
   ),
   dark: (
-
-    logo: url(image-path('LOGO-DARK.png')),
-    color-1: hsla(0, 0%, 80%, 1),
-    color-1-hover: hsla(0, 0%, 65%, 1),
-    color-2: hsla(0, 0%, 75%, 1),
-    color-2-hover: hsla(0, 0%, 60%, 1),
+    logo: url(image-path('logo_moobox_dark.svg')),
+    moobox: #F0AE2E,
+    moobox-hover: #E59E10,
+    raisin: #9A849A,
+    raisin-hover: #917891,
+    grass: #65A477,
+    grass-hover: #5B9A6D,
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3),
     background-color-main: hsla(0, 0%, 15%, 1),
     background-color-elements: hsla(0, 0%, 12%, 1),
     background-color-elements-hover: hsla(0, 0%, 22%, 1),
-    elements-color: hsla(0, 0%, 40%, 1),
-    carousel-background: rgba(100, 100, 100, 0.95),
-    carousel-background-2: rgba(100, 100, 100, 0.6)
 
   ),
 );
@@ -44,22 +45,3 @@ $theme-map: null;
 @function t($key) {
   @return map-get($theme-map, $key);
 }
-
-
-
-$themes: (
-
-  light: (
-
-    $moobox: #F0AE2E;
-    $moobox-hover: #BF840D;
-
-    $raisin: #221D23;
-    $raisin-hover #0B090B;
-    $cloud: #F7F7F7;
-    $grass: #65A477;
-
-    $box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3);
-
-  )
-)

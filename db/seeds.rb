@@ -81,7 +81,7 @@ puts "Test account built"
 puts "\n Building #{style_count.to_s} styles"
   styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: style_count)
   style_count.times do
-    Style.create!(on_verra: Faker::Creature::Animal.name)
+    Style.create!(name: Faker::Creature::Animal.name)
     styles_progress_bar.advance(1)
   end
 puts " Styles built"
@@ -92,7 +92,7 @@ puts "\n Building #{sounds_count.to_s} sounds"
   sounds_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: sounds_count)
   animals.each do |animal|
     sound = Sound.new(name: animal)
-    sound.sound_file.attach(io: File.open(File.join(Rails.root,"app/assets/images/sound-#{animal}.mp3")), filename: "sound-#{animal}")
+    sound.sound_file.attach(io: File.open(File.join(Rails.root,"app/assets/sounds/sound-#{animal}.mp3")), filename: "sound-#{animal}")
     sound.save!
     sounds_progress_bar.advance(1)
   end

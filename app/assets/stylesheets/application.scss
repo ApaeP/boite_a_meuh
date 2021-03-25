@@ -1,8 +1,19 @@
 // external libraries
 @import "bootstrap";
 
-// graphical variables
+// internal configuration
 @import "config/index";
 
 // internal style
 @import "components/index";
+
+
+// Temporary styles for testing
+.temp-navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sound-bars {
+  display: none;
+}

@@ -1,0 +1,8 @@
+<h1>Sounds#new</h1>
+<p>Find me in app/views/sounds/new.html.erb</p>
+
+<%= simple_form_for @sound do |f| %>
+  <%= f.input :name, placeholder: "Name" %>
+  <%= f.input :sound_file, as: :file %>
+  <%= f.submit "Moo!" %>
+<% end %>

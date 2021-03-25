@@ -1,0 +1,19 @@
+<% if sound.sound_file.attached? %>
+  <button class="play-btns btn btn-primary" id="play-<%= id %>" data-id="<%= id %>">Play</button>
+
+    <!-- SOUND TAG -->
+    <%=
+      cl_video_tag sound.sound_file.key,
+      controls: true,
+      height: '20px',
+      width: '300px',
+      poster: false,
+      disablePictureInPicture: true,
+      playsinline: true,
+      id: "sound-#{id}",
+      class: "sound-bars",
+      'data-id': id
+    %>
+    <!-- SOUND TAG -->
+
+<% end %>

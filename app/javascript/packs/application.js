@@ -12,10 +12,15 @@ ActiveStorage.start()
 require("jquery")
 
 // Our imports
+import { playAndStopOnClick } from '../components/sound_players';
+import { toggleTheme } from '../components/toggle_theme';
+
+
 
 $(document).on('turbolinks:load', function() {
 
-  console.log('coucou du turbolinks')
+  playAndStopOnClick();
+  toggleTheme();
 
 });
 

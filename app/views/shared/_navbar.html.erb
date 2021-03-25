@@ -2,9 +2,7 @@
 <!-- navbar top -->
   <div class="navbar-top">
     <div class="navbar-logo">
-      <a id="logo-light" href="/">
-        <img src=" <%= image_url("logo_moobox_light.png") %> " />
-      </a>
+      <div class="home"> <%= link_to image_tag("logo_moobox_light.png"), boxes_path %> </div>
     </div>
 
     <!-- Theme switch -->
@@ -24,9 +22,11 @@
 <!-- navbar bottom -->
   <div class="navbar-bottom">
     <!-- navbar buttons -->
-      <div class="index"> <%= link_to "Mooboxes", boxes_path %> </div>
-      <div class="create"> <%= link_to "Create a Moobox", new_box_path %> </div>
-      <div class="sounds"> <%= link_to "Sounds", sounds_path %> </div>
-      <div class="create-sounds"> <%= link_to "Create a sound", new_sound_path %> </div>
+    <ul>
+      <li> <div class="index"> <%= link_to "Mooboxes", boxes_path %> </div> </li>
+      <li> <div class="create-moobox"> <%= link_to "Create a Moobox", new_box_path %> </div> </li>
+      <li> <div class="sounds"> <%= link_to "Sounds", sounds_path %> </div> </li>
+      <li> <div class="create-sounds"> <%= link_to "Create a sound", new_sound_path %> </div> </li>
+    </ul>
   </div>
 </nav>

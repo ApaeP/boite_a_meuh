@@ -1,20 +1,32 @@
-<div class="temp-navbar">
-  <%= link_to "Accueil", root_path %>
-  <%= link_to "Index des boites à meuh", boxes_path %>
-  <%= link_to "Créer une boîte à meuh", new_box_path %>
-  <%= link_to "Index des sons", sounds_path %>
-  <%= link_to "Créer un Son, moo!", new_sound_path %>
-  <!-- Theme switch -->
-  <div class="theme-items">
-    <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
-    <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
-      <% if cookies[:theme] == "dark" %>
-        <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
-      <% else %>
-        <input id="theme-toggle" type="checkbox" class="toggle-theme">
-      <% end %>
-    <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
-  </div>
-  <!-- Theme switch end -->
-</div>
+<nav>
+<!-- navbar top -->
+  <div class="navbar-top">
+    <div class="navbar-logo">
+      <a id="logo-light" href="/">
+        <img src=" <%= image_url("logo_moobox_light.png") %> " />
+      </a>
+    </div>
 
+    <!-- Theme switch -->
+    <div class="theme-items">
+      <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
+      <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
+        <% if cookies[:theme] == "dark" %>
+          <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
+        <% else %>
+          <input id="theme-toggle" type="checkbox" class="toggle-theme">
+        <% end %>
+      <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
+    </div>
+    <!-- Theme switch end -->
+  </div>
+
+<!-- navbar bottom -->
+  <div class="navbar-bottom">
+    <!-- navbar buttons -->
+      <div class="index"> <%= link_to "Mooboxes", boxes_path %> </div>
+      <div class="create"> <%= link_to "Create a Moobox", new_box_path %> </div>
+      <div class="sounds"> <%= link_to "Sounds", sounds_path %> </div>
+      <div class="create-sounds"> <%= link_to "Create a sound", new_sound_path %> </div>
+  </div>
+</nav>

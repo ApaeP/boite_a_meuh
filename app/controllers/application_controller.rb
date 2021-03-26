@@ -11,4 +11,27 @@ class ApplicationController < ActionController::Base
       redirect_to(request.referrer || root_path)
     end
   end
+
+  def animal_talk
+  [
+    "Moo.",
+    "Moo!",
+    "Moo moo.",
+    "Moo moo!",
+    "Mooooo.",
+    "Mooooo!",
+    "Meow.",
+    "Meow!",
+    "Baa.",
+    "Baa!",
+    "Baa baa.",
+    "Baa baa!",
+    "Oink.",
+    "Oink!",
+    "Oink oink.",
+    "Oink oink!"
+  ]
+  .sample
+end
+
 end

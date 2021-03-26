@@ -12,9 +12,9 @@ class SoundsController < ApplicationController
   def create
     @sound = Sound.new(sound_params)
     if @sound.save
-      redirect_to root_path
-      flash.notice = "Sound #{@sound.name} was created with success, moo!"
+      redirect_to root_path, notice: "Sound \"#{@sound.name}\" is now available for new MooBoxes! #{animal_talk}"
     else
+      flash.alert = "We couldn't create this sound, please try again. #{animal_talk}"
       render :new
     end
   end
@@ -24,8 +24,9 @@ class SoundsController < ApplicationController
 
   def update
     if @sound.update(sound_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "Sound \"#{@sound.name}\" was modified! #{animal_talk}"
     else
+      flash.alert = "We couldn't modify this sound, please try again. #{animal_talk}"
       render :edit
     end
   end
@@ -34,9 +35,9 @@ class SoundsController < ApplicationController
     name = @sound.name
     if @sound.destroy
       redirect_to sounds_path
-      flash.notice = "Sound #{name} has been deleted, moo!"
+      flash.notice = "Sound \"#{name}\" has been deleted! #{animal_talk}"
     else
-      flash.alert = "Sound #{name} couldn't be deleted"
+      flash.alert = "Sound \"#{name}\" couldn't be deleted, please try again. #{animal_talk}"
     end
   end
 

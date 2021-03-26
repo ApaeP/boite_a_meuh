@@ -15,8 +15,9 @@ class BoxesController < ApplicationController
   def create
     @box = Box.new(box_params)
     if @box.save
-      redirect_to boxes_path
+      redirect_to boxes_path, notice: "Your MooBox #{@box.name} has been created! #{animal_talk}"
     else
+      flash.alert = "We could not create this MooBox, please try again. #{animal_talk}"
       render :new
     end
   end
@@ -26,17 +27,18 @@ class BoxesController < ApplicationController
 
   def update
     if @box.update(box_params)
-      redirect_to box_path(@box)
+      redirect_to box_path(@box), notice: "Your MooBox #{@box.name} has been succesfully modified! #{animal_talk}"
     else
+      flash.alert = "We are missing infos to modify your MooBox, please try again. #{animal_talk}"
       render :edit
     end
   end
 
   def destroy
     if @box.destroy
-      redirect_to boxes_path
+      redirect_to boxes_path, notice: "Your MooBox has been destroyed! #{animal_talk}"
     else
-      flash.alert = "Your box has not been destroyed! Please try again."
+      flash.alert = "Your MooBox has not been destroyed! Please try again. #{animal_talk}"
     end
   end
 

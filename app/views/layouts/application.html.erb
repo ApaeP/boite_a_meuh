@@ -12,7 +12,7 @@
 
   </head>
 
-  <body class="<%= cookies[:theme] || 'light' %> <%= "sass-theme-#{(cookies[:theme] || 'light')}" %>">
+  <body class="<%= cookies[:theme] || 'light' %> <%= "sass-theme-#{(cookies[:theme] || 'light')}" %>" id="<%= controller_name %>-<%= action_name %>" >
 
     <%= render 'shared/navbar' %>
 
@@ -25,4 +25,5 @@
     <% end %>
 
   </body>
+
 </html>

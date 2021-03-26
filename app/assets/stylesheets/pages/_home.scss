@@ -1,0 +1,35 @@
+.container-home {
+  background-image: url('wallpaper_home.png');
+  background-size: cover;
+  height: 200vh;
+  padding: 50px 150px;
+  .main-title {
+    text-align: center;
+    font-family: 'Kiwi Maru', serif;
+    font-weight: 500;
+    font-size: 70px;
+  }
+
+  .features {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+
+    .features-info {
+      text-align: center;
+      width: 16vw;
+    }
+    .picto {
+      height: 15vh;
+    }
+    .picto-txt {
+      margin-top: 20px;
+      font-family: 'Lexend', sans-serif;
+      font-weight: 500;
+    }
+  }
+}
+
+
+

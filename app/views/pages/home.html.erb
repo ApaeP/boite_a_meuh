@@ -1,4 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-home">
+  <h1 class="main-title">Welcome to Moobox!</h1>
 
-<button type="button" class="btn btn-primary">Primary</button>
+  <div class="features">
+
+    <div class="features-info">
+      <%= image_tag 'bear-2.svg', class: 'picto animal-picto' %>
+      <h5 class="picto-txt" >Choose your animal</h5>
+      <p class="picto-txt" >Choose among our selection of animals and pick your favorite!</p>
+    </div>
+
+    <div class="features-info">
+      <%= image_tag 'bell-53.svg', class: 'picto bell-picto' %>
+      <h5 class="picto-txt" >Choose your sound</h5>
+      <p class="picto-txt" >Select the best sound for your animal</p>
+    </div>
+
+    <div class="features-info">
+      <%= image_tag 'send-2.svg', class: 'picto send-picto' %>
+      <h5 class="picto-txt" >Send it to your friend!</h5>
+      <p class="picto-txt" >Finalize your Moobox and send it to all of your friends and family!</p>
+    </div>
+  </div>
+</div>

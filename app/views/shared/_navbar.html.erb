@@ -2,7 +2,7 @@
 <!-- navbar top -->
   <div class="navbar-top">
     <div class="navbar-logo">
-      <div class="home"> <%= link_to image_tag("logo_moobox_light.png"), boxes_path %> </div>
+      <div class="home"> <%= link_to image_tag("logo_moobox_light.png"), root_path %> </div>
     </div>
 
     <!-- Theme switch -->
@@ -23,21 +23,18 @@
   <div class="navbar-bottom">
     <!-- navbar buttons -->
     <ul>
-      <!-- a quoi servent les classes des div dans les li? -->
-      <!-- pourquoi des div dans des li? -->
-      <!-- 😃 -->
-      <li> <div class="index"> <%= link_to "Mooboxes", boxes_path %> </div> </li>
-      <li> <div class="create-moobox"> <%= link_to "Create a Moobox", new_box_path %> </div> </li>
-      <li> <div class="sounds"> <%= link_to "Sounds", sounds_path %> </div> </li>
-      <li> <div class="create-sounds"> <%= link_to "Create a sound", new_sound_path %> </div> </li>
-      <li> <div> <%= link_to "Styles", styles_path %> </div> </li>
-      <li> <div> <%= link_to "Create a style", new_style_path %> </div> </li>
+      <li> <%= link_to "Mooboxes", boxes_path %> </li>
+      <li> <%= link_to "Create a Moobox", new_box_path %> </li>
+      <li> <%= link_to "Sounds", sounds_path %> </li>
+      <li> <%= link_to "Create a sound", new_sound_path %> </li>
+      <li> <%= link_to "Styles", styles_path %> </li>
+      <li> <%= link_to "Create a style", new_style_path %> </li>
       <% if user_signed_in? %>
-        <li> <div> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </div> </li>
+        <li> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
       <% else %>
-        <li> <div> <%= link_to "Log in", new_user_session_path %> </div> </li>
-        <li> <div> <%= link_to "Sign in", new_user_registration_path %> </div> </li>
-      <% end %>
+        <li> <%= link_to "Log in", new_user_session_path %> </li>
+        <li> <%= link_to "Sign in", new_user_registration_path %> </li>
+      <% end %>      
     </ul>
   </div>
 </nav>

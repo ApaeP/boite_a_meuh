@@ -1,4 +1,5 @@
 class Sound < ApplicationRecord
+  belongs_to :user, optional: true
   has_one_attached :sound_file
   has_many :boxes, dependent: :destroy
 

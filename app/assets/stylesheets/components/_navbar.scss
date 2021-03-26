@@ -16,12 +16,35 @@
 }
 
 .navbar-bottom {
+
+
+  // ===========================================================
+  // Un exemple de la maniere d'utiliser notre methode de switch css pour les themes :
+
+  @include themed() {// <---- on appelle le mixin qui va créer les attributs correspondants pour nos elements
+    box-shadow: t('box-shadow'); // <---- on donne les valeurs de nos couleurs selon le theme aux attributs voulus
+
+    //    Avec t('blabla'), on récupere la valeur de la variable 'blabla' dans le
+    // theme correspondant au theme actuel (dark ou light) de l'utilisateur.
+
+    //    Tu peux en mettre autant que tu veux dans un appel, mais ca ne fonctionne que pour le selecteur dans lequel il est,
+    // donc dans l'app normalement tous les attributs qui settent des couleurs seront dans des appels du mixin "themed()", comme ici
+    // par exemple on peut y ajouter un background-color:
+    background-color: t('background-color-elements');
+
+    // tu peux aller voir sur l'app que maintenant ca change lorsque tu cliques le switch theme
+  } // <---- on ferme l'appel du mixin
+  // ===========================================================
+  // J'espere que c'est a peu près clair 😬
+
+
+  // box-shadow: 0px 5px 10px 1px #dee2e64d; <--- au lieu de ca
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10vh;
   padding: 0px 100px;
-  box-shadow: 0px 5px 10px 1px #dee2e64d;
   ul {
     list-style: none;
     display: contents;
@@ -30,37 +53,46 @@
     display: inline-block;
   }
   a {
-      color: #221D23;
+    @include themed() {
+      color: t('raisin');
+    }
+    // color: #221D23;
+    text-decoration: none;
+    position:relative;
+    padding: 0 5px;
+    &:after {
+      @include themed() {
+        background: t('moobox');
+      }
+      // background: #F0AE2E;
+      content: "";
+      position: absolute;
+      left: 0px;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+
+    &:hover {
       text-decoration: none;
-      position:relative;
-      padding: 0 5px;
 
       &:after {
-        content: "";
-        position: absolute;
-        left: 0px;
-        bottom: -4px;
-        width: 100%;
-        height: 1px;
-        background: #F0AE2E;
-        z-index: -1;
-        transition: all 0.3s ease;
-      }
-
-      &:hover {
-        text-decoration: none;
-
-        &:after {
-          height: 140%;
-        }
+        height: 140%;
       }
     }
+  }
 }
+
+// Pour des questions de facilité de modification, il faut éviter un maximum
+// de styliser les elements html, mais plutot utiliser des classes ou des ids
+// Aussi, il faut réduire un maximum le nombre de classes potentielles, (il y en
+// a des inutiles dans la navbar)
 
 
 // RESPONSIVE RULES
 
-  // @media screen and (max-width: 550px) {
+// @media screen and (max-width: 550px) {
 
-  // }
-
+// }

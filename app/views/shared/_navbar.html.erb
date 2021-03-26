@@ -29,6 +29,12 @@
       <li> <%= link_to "Create a sound", new_sound_path %> </li>
       <li> <%= link_to "Styles", styles_path %> </li>
       <li> <%= link_to "Create a style", new_style_path %> </li>
+      <% if user_signed_in? %>
+        <li> <%= link_to "Log out", destroy_user_session_path, method: :delete %> </li>
+      <% else %>
+        <li> <%= link_to "Log in", new_user_session_path %> </li>
+        <li> <%= link_to "Sign in", new_user_registration_path %> </li>
+      <% end %>      
     </ul>
   </div>
 </nav>

@@ -1,7 +1,7 @@
 beginning_time = Time.now
 # Trollons un peu
-# system 'osascript -e "set Volume 8"'
-# system 'say -v Daniel "Welcome to turbo seeds! Moooo, Bèèh, Woof, Meow!"'
+system 'osascript -e "set Volume 3.5"'
+system 'say -v Thomas "Meuh, meuh meuh meuh meuh, les boîtes à meuh qui font meuh c\'est rigolo"'
 # Trollons un peu
 
 # Faker::Config.locale = 'fr'
@@ -73,7 +73,7 @@ system 'afplay app/assets/images/moo_sound.mp3'
 
 # ============================== CREATING TEST USER ==============================
 puts "\n Building test account"
-  User.create!(email: 'test@test.com', password: 'password')
+  User.create!(email: 'test@test.com', password: 'azerty')
 puts "Test account built"
 # ============================== CREATING TEST USER END ==============================
 
@@ -130,4 +130,4 @@ puts " Boxes built"
 
 puts "\nDATABASE POPULATED in #{time_string}\n\n"
 puts File.read('app/assets/images/unitard.txt')
-system 'say -v Daniel "Thank you, see you next time!"'
+system 'say -v Thomas "Meuh, rrssi, à bientôt"'

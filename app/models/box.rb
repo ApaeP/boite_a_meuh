@@ -14,6 +14,7 @@ class Box < ApplicationRecord
     :extra_monumental
   ]
   validates :size, :name, presence: true
+  belongs_to :user, optional: true
   belongs_to :sound
   belongs_to :style
   enum size: SIZES

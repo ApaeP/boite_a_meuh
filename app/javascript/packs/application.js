@@ -14,11 +14,13 @@ require("jquery")
 // Our imports
 import { playAndStopOnClick } from '../components/sound_players';
 import { toggleTheme } from '../components/toggle_theme';
+import { flashesFadeOut } from '../components/flashes_fade_out';
 
 
 
 $(document).on('turbolinks:load', function() {
 
+  flashesFadeOut();
   playAndStopOnClick();
   toggleTheme();
 

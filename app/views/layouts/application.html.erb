@@ -13,12 +13,16 @@
   </head>
 
   <body class="<%= cookies[:theme] || 'light' %> <%= "sass-theme-#{(cookies[:theme] || 'light')}" %>">
+
     <%= render 'shared/navbar' %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <%= yield %>
+
+    <% flash.each do |type, msg| %>
+      <div class="rails-flashes alert alert-<%= type == 'notice' ? 'success' : 'warning' %>">
+        <%= msg %>
+      </div>
+    <% end %>
 
   </body>
 </html>

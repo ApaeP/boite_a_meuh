@@ -14,4 +14,12 @@ module ApplicationHelper
     current_theme == 'light' ? 'dark' : 'light'
   end
 
+  def display_current_method(width)
+    # cadre de 50 caracteres de large
+    length = controller_name.length + action_name.length + 5
+    side = "=" * ((width-length)/2)
+    string = "#{side}#{" #{controller_name.upcase} - #{action_name.upcase} "}#{side}"
+    string.length < 50 ? string + "=" : string
+  end
+
 end

@@ -27,6 +27,8 @@ puts "====================================="
 
 # (with_pictures == "y") ? (puts "Building seeds with pictures.") : (puts "Building seeds without pictures.")
 animals = %w(cat cow cow2 goat pig)
+photos = ['https://images-na.ssl-images-amazon.com/images/I/81Tl7qyesGL._AC_SL1500_.jpg', 'https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/662678', 'https://www.gmcrafts.co.uk/wp-content/uploads/2018/11/Cute-Unicorn-Main-Product-Image.jpg', 'https://images.photowall.com/products/57496/unicorn-2.jpg?h=699&q=85', 'https://www.politics.co.uk/wp-content/uploads/2020/08/cnphoto_0_0_0_0_14127456_1200.jpg', 'https://static.posters.cz/image/1300/posters-muraux/sweet-unicorn-pink-520x318-cm-premium-non-woven-130gsm-i78815.jpg', 'https://cdn.shopify.com/s/files/1/1365/2497/products/Rainbow-unicorn-mask_1024x.png', "https://images-eu.ssl-images-amazon.com/images/I/71\%2BncdWcmRL.png", "https://assets.entrepreneur.com/content/3x2/2000/20171025203714-GettyImages-527133383.jpeg"]
+
 
 puts "\n How many styles do you want to build?"
 print " > "
@@ -80,8 +82,11 @@ puts "Test account built"
 # ============================== CREATING STYLES ==============================
 puts "\n Building #{style_count.to_s} styles"
   styles_progress_bar = TTY::ProgressBar.new("-[:bar] :percent | ETA::eta | :rate/s", width: 80, total: style_count)
-  style_count.times do
-    Style.create!(name: Faker::Creature::Animal.name)
+  style_count.times do |i|
+    # file = URI.open(photos.sample)
+    style = Style.new(name: Faker::Creature::Animal.name)
+    style.pattern.attach(io: URI.open(photos.sample), filename: "pattern-seed-#{i}", content_type: 'image/png')
+    style.save!
     styles_progress_bar.advance(1)
   end
 puts " Styles built"

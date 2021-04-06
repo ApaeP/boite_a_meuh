@@ -1,7 +1,7 @@
 .container-home {
   background-image: url('wallpaper_home.png');
   background-size: cover;
-  height: 200vh;
+  height: 230vh;
   padding: 50px 150px;
   .main-title {
     text-align: center;
@@ -12,11 +12,14 @@
 
   .features {
     margin-top: 80px;
+    height: 47vh;
     display: flex;
     justify-content: space-around;
     align-items: top;
+    border-bottom: 0.5px solid lightgrey;
 
     .features-info {
+      margin-top: 20px;
       text-align: center;
       width: 16vw;
     }
@@ -30,6 +33,75 @@
     }
   }
 }
+
+.about {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  .about-infos {
+    padding: 0px 40px;
+  }
+  .about-title {
+    margin-bottom: 40px;
+    text-align: left;
+    font-family: 'Kiwi Maru', serif;
+    font-weight: 500;
+    font-size: 70px;
+  }
+  .about-img {
+    width: 650px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0px 5px 10px 1px #dee2e64d;
+    z-index: -1;
+  }
+}
+
+.create {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  .create-img {
+    margin-left: 30px;
+    width: 650px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0px 5px 10px 1px #dee2e64d;
+    z-index: -1;
+  }
+  .create-infos {
+    padding: 0px 0px 0px 70px;
+    text-align: right;
+  }
+  .create-title {
+    margin-bottom: 40px;
+    text-align: right;
+    font-family: 'Kiwi Maru', serif;
+    font-weight: 500;
+    font-size: 70px;
+  }
+  .create-txt {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+
+  .btn-create {
+    background-color: $moobox;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      background-color: $moobox-hover;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+
 
 
 

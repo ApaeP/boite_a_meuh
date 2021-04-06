@@ -21,4 +21,25 @@
       <p class="picto-txt" >Finalize your Moobox and send it to all of your friends and family!</p>
     </div>
   </div>
+
+<!--   <hr class="mt-5 mb-5"> -->
+
+  <div class="about">
+    <div class="about-infos">
+      <h1 class="about-title">Who are we?</h1>
+      <p class="about-txt">Hello hello ! We are two web developers that want to practice a bit our Ruby on Rails skills so we created Moobox! We really hope you enjoy our super stupid but awesome app, please feel free to navigate and find your perfect Moobox and send it to your friends and family !</p>
+      <p>Cheers,</p>
+      <p>Paul & Mylene 🐮</p>
+    </div>
+    <%= image_tag 'about_moobox.png', class: 'about-img' %>
+  </div>
+
+  <div class="create">
+    <%= image_tag 'moobox.png', class: 'create-img' %>
+    <div class="create-infos">
+      <h1 class="create-title">Be creative!</h1>
+      <p class="create-txt">Let's get creative and create your own Moobox! Choose all of the components you need, from the right pattern to the right animal and sound, and BOOM! There's your Moobox!</p>
+      <%= link_to 'Create your Moobox now!', new_box_path, class: 'btn-create mt-5'  %>
+    </div>
+  </div>
 </div>

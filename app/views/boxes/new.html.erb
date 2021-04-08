@@ -1,10 +1,21 @@
-<h1>Boxes#new</h1>
-<p>Find me in app/views/boxes/new.html.erb</p>
+<div class="container-new-box">
 
-<%= simple_form_for @box do |f| %>
-  <%= f.input :name, label: false, placeholder: 'Name' %>
-  <%= f.input :size, prompt: 'Size', collection: Box::SIZES, label: false %>
-  <%= f.association :style, prompt: 'Style', :label_method => lambda { |style| "#{style.name}" }, label: false %>
-  <%= f.association :sound, prompt: 'Sound', :label_method => lambda { |sound| "#{sound.name}" }, label: false %>
-  <%= f.submit "Create Moobox! (moo)" %>
-<% end %>
+  <h1 class="new_title">Let's create your Moobox!</h1>
+
+  <div class="form-new">
+    <%= simple_form_for @box do |f| %>
+      <div class="form-inputs">
+        <%= f.input :name, label: false, placeholder: 'Ex: Marguerite' %>
+        <%= f.input :size, prompt: 'Size', collection: Box::SIZES, label: false %>
+      </div>
+      <div class="form-dropdown">
+        <%= f.association :style, prompt: 'Style', :label_method => lambda { |style| "#{style.name}" }, label: false %>
+        <%= f.association :sound, prompt: 'Sound', :label_method => lambda { |sound| "#{sound.name}" }, label: false %>
+      </div>
+      <div class="form-btn">
+        <%= f.submit "Create Moobox! (moo)" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+.container-new-box {
+  background-image: url('wallpaper_new_box.png');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding: 50px 150px;
+  .new_title {
+    font-family: 'Kiwi Maru', serif;
+    font-weight: 500;
+    font-size: 50px;
+  }
+  .form-new {
+    text-align: left;
+    padding: 50px;
+  }
+}

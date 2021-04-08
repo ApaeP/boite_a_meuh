@@ -4,6 +4,10 @@
     <div class="navbar-logo">
       <div class="home"> <%= link_to image_tag("logo_moobox_light.png"), root_path %> </div>
     </div>
+  </div>
+
+<%
+=begin  %>
 
     <!-- Theme switch -->
     <div class="theme-items">
@@ -17,8 +21,39 @@
       <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
     </div>
     <!-- Theme switch end -->
+<%
+=end  %>
+
+<div class="navbar-bottom">
+  <div class="container nav-bottom">
+    <div class="row nav-bottom">
+      <div class="col-lg-2 text-center nav-links">
+        <%= link_to "Mooboxes", boxes_path %>
+      </div>
+      <div class="col-lg-2 text-center nav-links">
+        <%= link_to "Create a Moobox", new_box_path %>
+      </div>
+      <div class="col-lg-2 text-center nav-links">
+        <%= link_to "Sounds", sounds_path %>
+      </div>
+      <div class="col-lg-2 text-center nav-links">
+        <%= link_to "Create a sound", new_sound_path %>
+      </div>
+      <div class="col-lg-2 text-center nav-links">
+        <%= link_to "Styles", styles_path %>
+      </div>
+      <div class="col-lg-2 text-center nav-links">
+        <%= link_to "Create a style", new_style_path %>
+      </div>
+
+
+    </div>
   </div>
 
+</div>
+
+<%
+=begin  %>
 <!-- navbar bottom -->
   <div class="navbar-bottom">
     <!-- navbar buttons -->
@@ -34,7 +69,11 @@
       <% else %>
         <li> <%= link_to "Log in", new_user_session_path %> </li>
         <li> <%= link_to "Sign in", new_user_registration_path %> </li>
-      <% end %>      
+      <% end %>
     </ul>
   </div>
+
+<%
+=end  %>
+
 </nav>
